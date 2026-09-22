@@ -11,10 +11,17 @@
 ?>
 
 <!DOCTYPE html>
-<head> </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edição de Eventos SENAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <h1><?php echo $nomeSite; ?> - Edição</h1>
-   <?php require_once "nav.php"; ?> 
+    <h1>Eventos SENAI</h1>
+   <?php require_once "nav.php"; ?>
+   <hr>
+    <h1>Formulário de Edição de Eventos</h1>
 
     <ul>
         <?php foreach($_SESSION['eventos'] as $chaveEvento => $evento): ?>
@@ -33,41 +40,41 @@
             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
         
         <p>
-        <label>Eventos</label>
+        <label>Eventos:</label>
         <input type="text" name="titulo" value="<?= $eventoAtual['titulo'] ?>">
         <p>
         
         <p>
-        <label>area</label>
+        <label>Área:</label>
         <input type="text" name="area" value="<?= $eventoAtual['area'] ?>">
         <p>
 
         <p>
-        <label>data</label>
+        <label>Data:</label>
         <input type="date" name="data" value="<?= $eventoAtual['data'] ?>">
         <p>
 
         <p>
-        <label>inicio</label>
+        <label>Início:</label>
         <input type="time" name="inicio" value="<?= $eventoAtual['inicio'] ?>">
         <p>
 
         <p>
-        <label>fim</label>
+        <label>Fim:</label>
         <input type="time" name="fim" value="<?= $eventoAtual['fim'] ?>">
         <p>
 
         <p>
-        <label>local</label>
+        <label>Local:</label>
         <input type="text" name="local" value="<?= $eventoAtual['local'] ?>">
         <p>
 
         <p>
-        <label>responsavel</label>
+        <label>Responsável:</label>
         <input type="text" name="responsavel" value="<?= $eventoAtual['responsavel'] ?>">
         <p>
 
-        <button type="submit">enviar</button>
+        <button type="submit">Enviar</button>
         </form>
     <?php endif ?>
 
