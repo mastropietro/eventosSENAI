@@ -50,6 +50,7 @@ require_once 'init.php';
          <label for="responsavel">Responsável do Evento</label>
         <input type="text" id="responsavel" name="responsavel" placeholder="Escreva o responsável do evento" required>
         <br>
+
         <button type="submit">enviar</button>
     </form>
 

@@ -74,6 +74,11 @@
         <input type="text" name="responsavel" value="<?= $eventoAtual['responsavel'] ?>">
         <p>
 
+        <p>
+        <label>Limite de Vagas:</label>
+        <input type="number" name="limiteVagas" min="1" value="<?= $eventoAtual['limiteVagas'] ?>">
+        </p>
+
         <button type="submit">Enviar</button>
         </form>
     <?php endif ?>
