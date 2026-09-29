@@ -3,4 +3,5 @@
     <a href="cadastro.php"><strong>Cadastro de Eventos</strong></a>
     <a href="edicao.php"><strong>Edição de Eventos</strong></a>
     <a href="remocao.php"><strong>Remoção de Eventos</strong></a>
+    <a href="buscar.php"><strong>Buscar Eventos</strong></a>
 </nav>
