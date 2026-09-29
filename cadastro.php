@@ -51,6 +51,17 @@ require_once 'init.php';
         <input type="text" id="responsavel" name="responsavel" placeholder="Escreva o responsável do evento" required>
         <br>
 
+        <label for="limiteVagas">Limite de Vagas</label>
+        <input type="number" id="limiteVagas" name="limiteVagas" placeholder="Escreva o limite de vagas do evento" required>
+        <br>
+
+        <label for="status">Status do Evento</label>
+        <select id="status" name="status" required>
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+        </select>
+        <br>
+
         <button type="submit">enviar</button>
     </form>
 
