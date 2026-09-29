@@ -29,6 +29,8 @@ $evento = $_SESSION['eventos'][$eventoId];
     <p><strong><em>Fim: </em></strong><?php echo $evento['fim']; ?></p>
     <p><strong><em>Local do Evento: </em></strong><?php echo $evento['local']; ?></p>
     <p><strong><em>Responsável: </em></strong><?php echo $evento['responsavel']; ?></p>
+    <p><strong><em>Limite de Vagas: </em></strong><?php echo $evento['limiteVagas']; ?></p>
+    <p><strong><em>Status: </em></strong><?php echo $evento['status']; ?></p>
 </body>
 
 </html>

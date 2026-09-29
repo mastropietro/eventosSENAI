@@ -20,7 +20,7 @@ require_once('init.php');
     require_once 'nav.php';
     echo '<hr>';
     foreach ($_SESSION['eventos'] as $chaveEvento => $evento) {
-        echo '<h3>' . $evento['titulo'] . '</h3>';
+        echo '<h3>' . $evento['titulo'] . ' (' . $evento['status'] . ')</h3>';
         echo '<p>Evento de ' . $evento['titulo'] . '.</p>';
         echo '<p><a href="detalhes.php?eventoId=' . $chaveEvento . '">Saiba Mais...</a></p>';
         echo '<hr>';
