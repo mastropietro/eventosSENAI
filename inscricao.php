@@ -12,54 +12,57 @@ require_once 'init.php';
 
 <body>
 
-<h1>Eventos SENAI</h1>
+    <h1>Eventos SENAI</h1>
 
-<?php require_once 'nav.php'; ?>
+    <?php require_once 'nav.php'; ?>
 
-<hr>
+    <hr>
 
-<h2>Formulário de Inscrição</h2>
+    <h2>Formulário de Inscrição</h2>
 
-<form action="salvar_inscricao.php" method="POST">
+    <form action="salvar_inscricao.php" method="POST">
 
-    <label>Nome:</label>
-    <br>
+        <label>Nome:</label>
+        <br>
 
-    <input type="text" name="nome" required>
+        <input type="text" name="nome" required>
 
-    <br><br>
+        <br><br>
 
-    <label>E-mail:</label>
-    <br>
+        <label>E-mail:</label>
+        <br>
 
-    <input type="email" name="email" required>
+        <input type="email" name="email" required>
 
-    <br><br>
+        <br><br>
 
-    <label>Selecione o evento:</label>
-    <br>
+        <label>Selecione o evento:</label>
+        <br>
 
-    <select name="evento" required>
+        <select name="evento" required>
 
-        <option value="">Selecione um evento</option>
+            <option value="">Selecione um evento</option>
 
-        <?php foreach ($_SESSION['eventos'] as $id => $evento) { ?>
+            <?php foreach ($_SESSION['eventos'] as $id => $evento) { ?>
 
-            <option value="<?= $id ?>">
-                <?= $evento['titulo'] ?>
-            </option>
+                <?php if ($evento['status'] == 'Ativo') { ?>
 
-        <?php } ?>
+                    <option value="<?= $id ?>">
+                        <?= $evento['titulo'] ?>
+                    </option>
 
-    </select>
+                <?php } ?>
 
-    <br><br>
+            <?php } ?>
+        </select>
 
-    <button type="submit">
-        Inscrever
-    </button>
+        <br><br>
 
-</form>
+        <button type="submit">
+            Inscrever
+        </button>
+
+    </form>
 
 </body>
 

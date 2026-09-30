@@ -5,6 +5,12 @@ require_once 'init.php';
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $evento = $_POST['evento'];
+if (
+    !isset($_SESSION['eventos'][$evento]) ||
+    $_SESSION['eventos'][$evento]['status'] != 'Ativo'
+) {
+    exit('A inscrição não pode ser realizada porque este evento está inativo.');
+}
 
 if (!isset($_SESSION['inscricoes'])) {
     $_SESSION['inscricoes'] = [];
@@ -18,9 +24,7 @@ foreach ($_SESSION['inscricoes'] as $inscricao) {
     ) {
 
         exit('Este e-mail já está inscrito neste evento.');
-
     }
-
 }
 
 $_SESSION['inscricoes'][] = [
@@ -41,29 +45,29 @@ $_SESSION['inscricoes'][] = [
 
 <body>
 
-<h1>Inscrição realizada com sucesso!</h1>
+    <h1>Inscrição realizada com sucesso!</h1>
 
-<hr>
+    <hr>
 
-<p>
-    Nome: <?= $nome ?>
-</p>
+    <p>
+        Nome: <?= $nome ?>
+    </p>
 
-<p>
-    E-mail: <?= $email ?>
-</p>
+    <p>
+        E-mail: <?= $email ?>
+    </p>
 
-<br>
+    <br>
 
-<a href="inscricao.php">
-    Voltar
-</a>
+    <a href="inscricao.php">
+        Voltar
+    </a>
 
-<br><br>
+    <br><br>
 
-<a href="listar_inscritos.php">
-    Ver inscritos
-</a>
+    <a href="listar_inscritos.php">
+        Ver inscritos
+    </a>
 
 </body>
 
