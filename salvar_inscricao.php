@@ -5,6 +5,12 @@ require_once 'init.php';
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $evento = $_POST['evento'];
+$limiteVagas = $_SESSION['eventos'][$evento]['limiteVagas'];
+
+if (count($_SESSION['inscricoes']) >= $limiteVagas) {
+    exit('O evento selecionado não tem vagas disponíveis.');
+}
+
 if (
     !isset($_SESSION['eventos'][$evento]) ||
     $_SESSION['eventos'][$evento]['status'] != 'ativo'
