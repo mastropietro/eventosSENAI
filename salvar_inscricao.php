@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $evento = $_POST['evento'];
 if (
     !isset($_SESSION['eventos'][$evento]) ||
-    $_SESSION['eventos'][$evento]['status'] != 'Ativo'
+    $_SESSION['eventos'][$evento]['status'] != 'ativo'
 ) {
     exit('A inscrição não pode ser realizada porque este evento está inativo.');
 }
