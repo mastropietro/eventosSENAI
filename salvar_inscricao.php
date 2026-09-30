@@ -2,9 +2,36 @@
 
 require_once 'init.php';
 
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$evento = $_POST['evento'];
+if (
+    !isset($_SESSION['eventos'][$evento]) ||
+    $_SESSION['eventos'][$evento]['status'] != 'Ativo'
+) {
+    exit('A inscrição não pode ser realizada porque este evento está inativo.');
+}
+
 if (!isset($_SESSION['inscricoes'])) {
     $_SESSION['inscricoes'] = [];
 }
+
+foreach ($_SESSION['inscricoes'] as $inscricao) {
+
+    if (
+        $inscricao['email'] == $email &&
+        $inscricao['evento'] == $evento
+    ) {
+
+        exit('Este e-mail já está inscrito neste evento.');
+    }
+}
+
+$_SESSION['inscricoes'][] = [
+    'nome' => $nome,
+    'email' => $email,
+    'evento' => $evento
+];
 
 ?>
 
@@ -13,38 +40,34 @@ if (!isset($_SESSION['inscricoes'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Inscritos</title>
+    <title>Inscrição</title>
 </head>
 
 <body>
 
-<h1>Inscritos</h1>
-
-<?php require_once 'nav.php'; ?>
-
-<hr>
-
-<?php foreach ($_SESSION['eventos'] as $id => $evento) { ?>
-
-    <h2><?= $evento['titulo'] ?></h2>
-
-    <?php foreach ($_SESSION['inscricoes'] as $inscricao) { ?>
-
-        <?php if ($inscricao['evento'] == $id) { ?>
-
-            <p>
-                Nome: <?= $inscricao['nome'] ?>
-                <br>
-                E-mail: <?= $inscricao['email'] ?>
-            </p>
-
-        <?php } ?>
-
-    <?php } ?>
+    <h1>Inscrição realizada com sucesso!</h1>
 
     <hr>
 
-<?php } ?>
+    <p>
+        Nome: <?= $nome ?>
+    </p>
+
+    <p>
+        E-mail: <?= $email ?>
+    </p>
+
+    <br>
+
+    <a href="inscricao.php">
+        Voltar
+    </a>
+
+    <br><br>
+
+    <a href="listar_inscritos.php">
+        Ver inscritos
+    </a>
 
 </body>
 
