@@ -23,16 +23,21 @@ require_once 'init.php';
 <form action="salvar_inscricao.php" method="POST">
 
     <label>Nome:</label>
+    <br>
+
     <input type="text" name="nome" required>
 
     <br><br>
 
     <label>E-mail:</label>
+    <br>
+
     <input type="email" name="email" required>
 
     <br><br>
 
     <label>Selecione o evento:</label>
+    <br>
 
     <select name="evento" required>
 
@@ -50,7 +55,9 @@ require_once 'init.php';
 
     <br><br>
 
-    <button type="submit">Inscrever</button>
+    <button type="submit">
+        Inscrever
+    </button>
 
 </form>
 

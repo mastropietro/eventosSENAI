@@ -2,51 +2,74 @@
 
 require_once 'init.php';
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$evento = $_POST['evento'];
-
 if (!isset($_SESSION['inscricoes'])) {
     $_SESSION['inscricoes'] = [];
 }
 
-foreach ($_SESSION['inscricoes'] as $inscricao) {
+?>
 
-    if ($inscricao['email'] == $email && $inscricao['evento'] == $evento) {
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-        exit('Este e-mail já está inscrito neste evento.');
+<head>
+    <meta charset="UTF-8">
+    <title>Inscritos</title>
+</head>
+
+<body>
+
+<h1>Inscritos</h1>
+
+<?php require_once 'nav.php'; ?>
+
+<hr>
+
+<?php foreach ($_SESSION['eventos'] as $id => $evento) { ?>
+
+    <h2>
+        <?= $evento['titulo'] ?>
+    </h2>
+
+    <?php
+
+    $encontrou = false;
+
+    foreach ($_SESSION['inscricoes'] as $inscricao) {
+
+        if ($inscricao['evento'] == $id) {
+
+            $encontrou = true;
+
+    ?>
+
+            <p>
+                <strong>Nome:</strong>
+                <?= $inscricao['nome'] ?>
+
+                <br>
+
+                <strong>E-mail:</strong>
+                <?= $inscricao['email'] ?>
+            </p>
+
+    <?php
+
+        }
 
     }
 
-}
+    if (!$encontrou) {
 
-$_SESSION['inscricoes'][] = [
-    'nome' => $nome,
-    'email' => $email,
-    'evento' => $evento
-];
+        echo '<p>Nenhuma pessoa inscrita neste evento.</p>';
 
-echo 'Inscrição realizada com sucesso!';
-
-echo '<br><br>';
-
-echo '<a href="inscricao.php">Voltar</a>';
-
-foreach ($_SESSION['inscricoes'] as $inscricao) {
-
-    echo '<p>Nome: ' . $inscricao['nome'] . '</p>';
-    echo '<p>E-mail: ' . $inscricao['email'] . '</p>';
-
-    if (isset($_SESSION['eventos'][$inscricao['evento']])) {
-        echo '<p>Evento: ' .
-            $_SESSION['eventos'][$inscricao['evento']]['titulo'] .
-            '</p>';
-    } else {
-        echo '<p>Evento: Não informado</p>';
     }
 
-    echo '<hr>';
-}
+    ?>
 
+    <hr>
 
+<?php } ?>
 
+</body>
+
+</html>
