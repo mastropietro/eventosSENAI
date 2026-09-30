@@ -45,7 +45,7 @@ require_once 'init.php';
 
             <?php foreach ($_SESSION['eventos'] as $id => $evento) { ?>
 
-                <?php if ($evento['status'] == 'Ativo') { ?>
+                <?php if ($evento['status'] == 'ativo') { ?>
 
                     <option value="<?= $id ?>">
                         <?= $evento['titulo'] ?>
