@@ -13,7 +13,7 @@ if (!isset($_SESSION['eventos'])) {
             'local' => 'Laboratório 1',
             'responsavel' => 'Prof. Carlos',
             'limiteVagas' => 20,
-            'status' => 'Ativo'
+            'status' => 'ativo'
         ],
         2 => [
             'id' => 2,
@@ -26,7 +26,7 @@ if (!isset($_SESSION['eventos'])) {
             'local' => 'Laboratório 2',
             'responsavel' => 'Profa. Ana',
             'limiteVagas' => 15,
-            'status' => 'Ativo'
+            'status' => 'ativo'
         ]
     ];
     $_SESSION['proximo_id'] = 3;

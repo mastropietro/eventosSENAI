@@ -14,6 +14,7 @@ if (!isset($_SESSION['inscricoes'])) {
 <head>
     <meta charset="UTF-8">
     <title>Inscritos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

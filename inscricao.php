@@ -8,6 +8,8 @@ require_once 'init.php';
 <head>
     <meta charset="UTF-8">
     <title>Inscrição</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>

@@ -27,8 +27,8 @@ require_once 'init.php';
         <input type="text" id="area" name="area" placeholder="Escreva a area do evento" required>
         <br>
 
-        <label for="descricao">Descrição do Evento</label>
-        <input type="text" id="descricao" name="descricao" placeholder="Escreva a descrição do evento" required>
+        <label for="descricao">Descrição do Evento:</label>
+        <input type="text" id="descricao" name="descricao" placeholder="Descreva o evento">
         <br>
 
         <label for="data">Data do Evento</label>
@@ -43,11 +43,11 @@ require_once 'init.php';
         <input type="text" id="fim" name="fim" placeholder="Escreva o fim do evento" required>
         <br>
 
-         <label for="local">Local do Evento</label>
+        <label for="local">Local do Evento</label>
         <input type="text" id="local" name="local" placeholder="Escreva o local do evento" required>
         <br>
 
-         <label for="responsavel">Responsável do Evento</label>
+        <label for="responsavel">Responsável do Evento</label>
         <input type="text" id="responsavel" name="responsavel" placeholder="Escreva o responsável do evento" required>
         <br>
 

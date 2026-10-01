@@ -7,10 +7,6 @@ $email = $_POST['email'];
 $evento = $_POST['evento'];
 $limiteVagas = $_SESSION['eventos'][$evento]['limiteVagas'];
 
-if (count($_SESSION['inscricoes']) >= $limiteVagas) {
-    exit('O evento selecionado não tem vagas disponíveis.');
-}
-
 if (
     !isset($_SESSION['eventos'][$evento]) ||
     $_SESSION['eventos'][$evento]['status'] != 'ativo'
@@ -18,8 +14,14 @@ if (
     exit('A inscrição não pode ser realizada porque este evento está inativo.');
 }
 
+$limiteVagas = $_SESSION['eventos'][$evento]['limiteVagas'];
+
 if (!isset($_SESSION['inscricoes'])) {
     $_SESSION['inscricoes'] = [];
+}
+
+if (count($_SESSION['inscricoes']) >= $limiteVagas) {
+    exit('O evento selecionado não tem vagas disponíveis.');
 }
 
 foreach ($_SESSION['inscricoes'] as $inscricao) {
@@ -47,6 +49,8 @@ $_SESSION['inscricoes'][] = [
 <head>
     <meta charset="UTF-8">
     <title>Inscrição</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
